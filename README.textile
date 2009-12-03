@@ -1,10 +1,10 @@
-h1. XNYandexInflector.framework 
+h2. XNYandexInflector.framework 
 
 XNYandexInflector is a very simple framework which provides an objective-c wrapper for Yandex.Inflect service. 
 
 Original yandex.inflect is here: http://nano.yandex.ru/project/inflect/
 
-h2. How to use
+h3. How to use
 
 First you'll need to add the framework to your XCode project, than do 
 
@@ -20,13 +20,42 @@ NSString *inflected = [[Inflector sharedInflector] inflectString: @"Вася П�
 
 That would return "Васе Пупкине".
 
-h2. Todo
+h3. Reference 
+
+h4. XNInflection class
+
+XNInflection is a full-pack of inflectioned forms for one word. Inflections are created and returned by XNInflector class. 
+XNInflection has some string properties and a boolean flag which indicates if inflection is full (all six cases are ok). 
+
+Here are XNInflection's properties: 
+
+|_. Property |_. Russian name |_. Description |
+| isFullInflection | | Did yandex inflect the word and return all 6 of it's cases? |
+| original | Оригинальная словоформа | The original string passed to the inflector. |
+| nominative | Именительный | Nominative case string. |
+| genitive | Родительный | Genitive case string. |
+| dative | Дательный | Dative case string. |
+| accusative | Винительный | Accusative case string. |
+| instrumental | Творительный | Instrumental case string. |
+| prepositional | Предложный | Prepositional case string. |
+
+h4. Inflector class
+
+XNInflector uses Cocoa's shared object paradigm (also known as singletone). To get inflector object and use inflector you should use @[XNInflector sharedInflector];@.
+
+The only instance method requests yandex for the inflected forms of string provided as an argument and returns XNInflection object: 
+
+<pre><code>
+	[[XNInflector sharedInflector] inflectString: @"data"];
+</code></pre>
+
+h3. Todo
 
 I think it's too slow to use it in a real project. 
 I'll take a look on what can be simplified and optimized. 
 
 And what definitely should be in the framework is a caching mechanism. 
 
-h2. Author
+h3. Author
 
 Nat Gadgibalaev, <iam@railsmaniac.com>

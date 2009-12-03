@@ -64,13 +64,11 @@
 	
 	if( isFullInflection ){
 		[nominative release];
-		[nominative release];
-		[nominative release];
-		[nominative release];
-		[nominative release];
-		[nominative release];
-		[nominative release];
-		[nominative release];
+		[genitive release];
+		[dative release];
+		[accusative release];
+		[instrumental release];
+		[prepositional release];
 	}
 	
 	[super dealloc];
