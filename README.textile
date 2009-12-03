@@ -1,0 +1,32 @@
+h1. XNYandexInflector.framework 
+
+XNYandexInflector is a very simple framework which provides an objective-c wrapper for Yandex.Inflect service. 
+
+Original yandex.inflect is here: http://nano.yandex.ru/project/inflect/
+
+h2. How to use
+
+First you'll need to add the framework to your XCode project, than do 
+
+<pre><code>
+#import <XNYandexInflector/XNYandexInflector.h>
+</code></pre>
+
+After that, you can use Inflector via it's sharedInflector class method: 
+
+<pre><code>
+NSString *inflected = [[Inflector sharedInflector] inflectString: @"Вася Пупкин"].prepositional;
+</code></pre>
+
+That would return "Васе Пупкине".
+
+h2. Todo
+
+I think it's too slow to use it in a real project. 
+I'll take a look on what can be simplified and optimized. 
+
+And what definitely should be in the framework is a caching mechanism. 
+
+h2. Author
+
+Nat Gadgibalaev, <iam@railsmaniac.com>
