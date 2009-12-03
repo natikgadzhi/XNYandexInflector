@@ -86,7 +86,7 @@ static XNInflector *sharedInflector = nil;
 	// parse XML for inflected forms
 	NSArray *inflectionNodes = [[responseXML rootElement] nodesForXPath:@"//inflection" error:&error ];
 
-	if( inflectionNodes.count > 0 ){
+	if( inflectionNodes.count > 1 ){
 		for( NSXMLNode *node in inflectionNodes ){
 			[stringInflections addObject:[node stringValue]];
 		}

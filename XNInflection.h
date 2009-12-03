@@ -10,9 +10,12 @@
 
 @interface XNInflection : NSObject {
 	NSString *original, *nominative, *genitive, *dative, *accusative, *instrumental, *prepositional;
+	
+	BOOL isFullInflection;
 }
 
 @property(readonly) NSString *original, *nominative, *genitive, *dative, *accusative, *instrumental, *prepositional;
+@property(readonly) BOOL isFullInflection;
 
 + (XNInflection *) inflectionWithOriginal: (NSString *) originalString; 
 + (XNInflection *) inflectionWithArray: (NSArray *) inflectionArray;

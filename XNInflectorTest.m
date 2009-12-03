@@ -19,4 +19,11 @@
 	STAssertEqualObjects( @"Нате", originalString, @"Inflection failed to return the prepositional expression. Returned %@ for expression «Нат»", originalString);
 }
 
+- (void) testReturnsOnlyOriginalCorrectly {
+	
+	NSString *originalString = [[XNInflector sharedInflector] incflectString:@"Uninflectable"].original;
+	
+	STAssertEqualObjects( @"Uninflectable", originalString, @"Uninflectable string inflection caused an error.");
+}
+
 @end

@@ -12,6 +12,7 @@
 @implementation XNInflection
 
 @synthesize original, nominative, genitive, dative, accusative, instrumental, prepositional;
+@synthesize isFullInflection;
 
 + (XNInflection *) inflectionWithOriginal: (NSString *) originalString
 {
@@ -38,16 +39,41 @@
 {
 	self = [super init];
 	
-	original = [inflectionArray objectAtIndex: 0];
+	isFullInflection = NO;
 	
-	nominative		= [inflectionArray objectAtIndex: 1];
-	genitive		= [inflectionArray objectAtIndex: 2];
-	dative			= [inflectionArray objectAtIndex: 3];
-	accusative		= [inflectionArray objectAtIndex: 4];
-	instrumental	= [inflectionArray objectAtIndex: 5];
-	prepositional	= [inflectionArray objectAtIndex: 6];
+	original = [[inflectionArray objectAtIndex: 0] retain];
+	
+	if( inflectionArray.count > 1 ){
+		
+		isFullInflection = YES;
+		
+		nominative		= [[inflectionArray objectAtIndex: 1] retain];
+		genitive		= [[inflectionArray objectAtIndex: 2] retain];
+		dative			= [[inflectionArray objectAtIndex: 3] retain];
+		accusative		= [[inflectionArray objectAtIndex: 4] retain];
+		instrumental	= [[inflectionArray objectAtIndex: 5] retain];
+		prepositional	= [[inflectionArray objectAtIndex: 6] retain];
+	}
 	
 	return self;
+}
+
+- (void) dealloc
+{
+	[original release];
+	
+	if( isFullInflection ){
+		[nominative release];
+		[nominative release];
+		[nominative release];
+		[nominative release];
+		[nominative release];
+		[nominative release];
+		[nominative release];
+		[nominative release];
+	}
+	
+	[super dealloc];
 }
 
 @end
